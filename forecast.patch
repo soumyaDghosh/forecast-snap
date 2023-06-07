@@ -1,0 +1,28 @@
+diff -Naur a/data/dev.salaniLeo.forecast.appdata.xml.in b/data/dev.salaniLeo.forecast.appdata.xml.in
+--- a/data/dev.salaniLeo.forecast.appdata.xml.in	2023-06-08 02:58:27.238006636 +0530
++++ b/data/dev.salaniLeo.forecast.appdata.xml.in	2023-06-08 03:01:21.669283946 +0530
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <component type="desktop">
+   <id>dev.salaniLeo.forecast</id>
++  	<icon type="stock">snap.forecast.dev.salaniLeo.forecast</icon>
+   <name>Forecast</name>
+   <summary>Weather app for gnome</summary>
+   <description>
+diff -Naur a/data/dev.salaniLeo.forecast.desktop.in b/data/dev.salaniLeo.forecast.desktop.in
+--- a/data/dev.salaniLeo.forecast.desktop.in	2023-06-08 02:58:09.257290624 +0530
++++ b/data/dev.salaniLeo.forecast.desktop.in	2023-06-08 03:01:31.045690044 +0530
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+ Name=Forecast
+ Exec=forecast
+-Icon=dev.salaniLeo.forecast
++Icon=snap.forecast.dev.salaniLeo.forecast
+ Keywords[en]=Weather;Forecast;Temperature;
+ Comment[en]=Forecast app for GNOME
+ Terminal=false
+ Type=Application
+ Categories=GTK;
+-StartupNotify=true
+\ No newline at end of file
++StartupNotify=true
