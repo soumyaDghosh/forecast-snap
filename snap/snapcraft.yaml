@@ -40,4 +40,5 @@ apps:
     command: usr/bin/forecast
     extensions: [gnome]
     common-id: dev.salaniLeo.forecast
-    
+    environment:
+      PYTHONPATH: $SNAP/usr/lib/python3.10/dist-packages:$PYTHONPATH
