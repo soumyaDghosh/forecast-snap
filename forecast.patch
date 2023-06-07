@@ -26,6 +26,33 @@ diff -Naur a/data/dev.salaniLeo.forecast.desktop.in b/data/dev.salaniLeo.forecas
 -StartupNotify=true
 \ No newline at end of file
 +StartupNotify=true
+diff -Naur a/Forecast/WttrInfo.py b/Forecast/WttrInfo.py
+--- a/Forecast/WttrInfo.py	2023-06-08 03:40:49.141662519 +0530
++++ b/Forecast/WttrInfo.py	2023-06-08 03:50:35.696538195 +0530
+@@ -1,6 +1,7 @@
+ import requests
+ from datetime import datetime, timedelta
+ import gi
++import os
+ from threading import Thread
+ gi.require_version('Gtk', '4.0')
+ gi.require_version('Adw', '1')
+@@ -59,6 +60,8 @@
+             icon_loc = '/app/share/icons/hicolor/scalable/status/'
+         # elif appimage:
+         #     icon_loc.load_from_path('style.css')
++        elif 'SNAP' in os.environ:
++			icon_loc = os.path.join((os.environ['SNAP']),"usr", "share","icons", "hicolor", "scalable", "status")
+         else:
+             icon_loc = 'data/status/'
+ 
+@@ -646,4 +649,4 @@
+         
+     local_full_time = str(converted_datetime) + ":" + datetime.now().strftime("%M")
+                 
+-    return local_full_time
+\ No newline at end of file
++    return local_full_time
 diff -Naur a/meson.build b/meson.build
 --- a/meson.build	2023-06-08 03:13:43.268122795 +0530
 +++ b/meson.build	2023-06-08 03:17:25.419153117 +0530
