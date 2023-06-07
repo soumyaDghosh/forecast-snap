@@ -1,0 +1,43 @@
+name: forecast # you probably want to 'snapcraft register <name>'
+base: core22 # the base snap is the execution environment for this snap
+adopt-info: forecast
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+
+parts:
+  forecast:
+    # See 'snapcraft plugins'
+    plugin: meson
+    source: https://github.com/SalaniLeo/Forecast.git
+    source-tag: '0.1.0'
+    meson-parameters:
+      - --prefix=/snap/forecast/current/usr
+    override-pull: |
+      craftctl default
+      patch -p1 < $CRAFT_PROJECT_DIR/forecast.patch
+      pip install --prefix=$CRAFT_PART_INSTALL/usr requests==2.30.0
+      pip install --prefix=$CRAFT_PART_INSTALL/usr pytz==2023.3
+    override-build: |
+      craftctl default
+      sed -e '1c#!/usr/bin/python3' -i $CRAFT_PART_INSTALL/usr/local/bin/*
+      mkdir -p $CRAFT_PART_INSTALL/meta/gui
+      cp -r $CRAFT_PART_INSTALL/snap/forecast/current/usr/share/icons $CRAFT_PART_INSTALL/meta/gui/
+      for i in `find $CRAFT_PART_INSTALL/meta/gui/icons -name "*.svg" -o -name "*.png"`; do
+        mv $i "`dirname $i`/snap.$CRAFT_PROJECT_NAME.`basename $i`"
+      done      
+    parse-info: [usr/share/appdata/dev.salaniLeo.forecast.appdata.xml]
+    organize:
+      snap/forecast/current: .
+      usr/local: usr
+      usr/lib/python3: usr/lib/python3.10
+    
+slots:
+  interface: dbus
+  bus: session
+  name: dev.salaniLeo.forecast    
+apps:
+  forecast:
+    command: usr/bin/forecast
+    extensions: [gnome]
+    common-id: dev.salaniLeo.forecast
+    
