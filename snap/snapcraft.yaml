@@ -32,9 +32,10 @@ parts:
       usr/lib/python3: usr/lib/python3.10
     
 slots:
-  interface: dbus
-  bus: session
-  name: dev.salaniLeo.forecast    
+  forecast:
+    interface: dbus
+    bus: session
+    name: dev.salaniLeo.forecast    
 apps:
   forecast:
     command: usr/bin/forecast
