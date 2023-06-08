@@ -58,7 +58,7 @@ diff -Naur a/meson.build b/meson.build
  
 -install_subdir('data/status', install_dir: '/app/share/icons/hicolor/scalable')
 -install_subdir('Forecast', install_dir: '/app/bin')
-+install_subdir('data/status', install_dir: join_paths(get_option('datadir'), 'icons', scalable_dir))
++install_subdir('data/status', install_dir: '/snap/forecast/current/usr/share/icons/hicolor/scalable/')
 +install_subdir('Forecast', install_dir: get_option('bindir'))
  
  gnome.post_install(
