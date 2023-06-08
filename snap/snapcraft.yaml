@@ -22,7 +22,8 @@ parts:
       craftctl default
       sed -e '1c#!/usr/bin/python3' -i $CRAFT_PART_INSTALL/usr/local/bin/*
       mkdir -p $CRAFT_PART_INSTALL/meta/gui
-      cp -r $CRAFT_PART_INSTALL/snap/forecast/current/usr/share/icons/hicolor/*/apps $CRAFT_PART_INSTALL/meta/gui/
+      cp -r $CRAFT_PART_INSTALL/snap/forecast/current/usr/share/icons $CRAFT_PART_INSTALL/meta/gui/
+      find $CRAFT_PART_INSTALL/meta/gui/icons -type f -not -name 'dev.salaniLeo.forecast*' -exec rm {} + -o -type d -empty -exec rmdir {} +
       for i in `find $CRAFT_PART_INSTALL/meta/gui/icons -name "*.svg" -o -name "*.png"`; do
         mv $i "`dirname $i`/snap.$CRAFT_PROJECT_NAME.`basename $i`"
       done      
