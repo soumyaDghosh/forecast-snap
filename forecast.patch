@@ -26,25 +26,6 @@ diff -Naur a/data/dev.salaniLeo.forecast.desktop.in b/data/dev.salaniLeo.forecas
 -StartupNotify=true
 \ No newline at end of file
 +StartupNotify=true
-diff -Naur a/Forecast/WttrInfo.py b/Forecast/WttrInfo.py
---- a/Forecast/WttrInfo.py	2023-06-08 17:40:22.111659840 +0530
-+++ b/Forecast/WttrInfo.py	2023-06-08 17:36:28.152317255 +0530
-@@ -60,7 +60,7 @@
-         # elif appimage:
-         #     icon_loc.load_from_path('style.css')
-         else:
--            icon_loc = 'data/status/'
-+            icon_loc = '/snap/forecast/current/usr/share/icons/hicolor/scalable/apps/status/'
- 
- 
-         raw_units = settings.get_string('units')
-@@ -646,4 +646,4 @@
-         
-     local_full_time = str(converted_datetime) + ":" + datetime.now().strftime("%M")
-                 
--    return local_full_time
-\ No newline at end of file
-+    return local_full_time
 diff -Naur a/meson.build b/meson.build
 --- a/meson.build	2023-06-08 03:13:43.268122795 +0530
 +++ b/meson.build	2023-06-08 03:17:25.419153117 +0530

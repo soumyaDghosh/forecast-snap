@@ -15,6 +15,7 @@ parts:
     override-pull: |
       craftctl default
       patch -p1 < $CRAFT_PROJECT_DIR/forecast.patch
+      sed -i "s#icon_loc = 'data/status/'#icon_loc = '/snap/forecast/current/usr/share/icons/hicolor/scalable/status/'#" Forecast/WttrInfo.py
       pip install --prefix=$CRAFT_PART_INSTALL/usr requests==2.30.0
       pip install --prefix=$CRAFT_PART_INSTALL/usr pytz==2023.3
     override-build: |
