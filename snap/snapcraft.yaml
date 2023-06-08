@@ -46,3 +46,7 @@ apps:
     common-id: dev.salaniLeo.forecast
     environment:
       PYTHONPATH: $SNAP/usr/lib/python3.10/dist-packages:$PYTHONPATH
+    plugs:
+      - network
+      - network-status
+      - network-bind
