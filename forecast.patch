@@ -27,31 +27,18 @@ diff -Naur a/data/dev.salaniLeo.forecast.desktop.in b/data/dev.salaniLeo.forecas
 \ No newline at end of file
 +StartupNotify=true
 diff -Naur a/Forecast/WttrInfo.py b/Forecast/WttrInfo.py
---- a/Forecast/WttrInfo.py	2023-06-08 03:40:49.141662519 +0530
-+++ b/Forecast/WttrInfo.py	2023-06-08 09:18:08.274262068 +0530
-@@ -1,6 +1,7 @@
- import requests
- from datetime import datetime, timedelta
- import gi
-+import os
- from threading import Thread
- gi.require_version('Gtk', '4.0')
- gi.require_version('Adw', '1')
-@@ -56,11 +57,11 @@
-             text_raw = saved_locations[0]
- 
-         if flatpak:
--            icon_loc = '/app/share/icons/hicolor/scalable/status/'
-+            icon_loc = '/snap/forecast/current/usr/share/icons/hicolor/scalable/status/'
+--- a/Forecast/WttrInfo.py	2023-06-08 17:40:22.111659840 +0530
++++ b/Forecast/WttrInfo.py	2023-06-08 17:36:28.152317255 +0530
+@@ -60,7 +60,7 @@
          # elif appimage:
          #     icon_loc.load_from_path('style.css')
          else:
 -            icon_loc = 'data/status/'
-+            icon_loc = '/snap/forecast/current/usr/share/icons/hicolor/scalable/status/'
++            icon_loc = '/snap/forecast/current/usr/share/icons/hicolor/scalable/apps/status/'
  
  
          raw_units = settings.get_string('units')
-@@ -646,4 +647,4 @@
+@@ -646,4 +646,4 @@
          
      local_full_time = str(converted_datetime) + ":" + datetime.now().strftime("%M")
                  
