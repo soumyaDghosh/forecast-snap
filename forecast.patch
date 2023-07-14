@@ -26,25 +26,3 @@ diff -Naur a/data/dev.salaniLeo.forecast.desktop.in b/data/dev.salaniLeo.forecas
 -StartupNotify=true
 \ No newline at end of file
 +StartupNotify=true
-diff -Naur a/meson.build b/meson.build
---- a/meson.build	2023-06-08 03:13:43.268122795 +0530
-+++ b/meson.build	2023-06-08 03:17:25.419153117 +0530
-@@ -30,13 +30,13 @@
-   output: 'forecast',
-   configuration: conf,
-   install: true,
--  install_dir: '/app/bin'
-+  install_dir: get_option('bindir')
- )
- 
--install_subdir('data/status', install_dir: '/app/share/icons/hicolor/scalable')
--install_subdir('Forecast', install_dir: '/app/bin')
-+install_subdir('data/status', install_dir: '/snap/forecast/current/usr/share/icons/hicolor/scalable/')
-+install_subdir('Forecast', install_dir: get_option('bindir'))
- 
- gnome.post_install(
-      glib_compile_schemas: true,
-   update_desktop_database: true,
--)
-\ No newline at end of file
-+)
