@@ -10,6 +10,7 @@ parts:
     plugin: meson
     source: https://github.com/SalaniLeo/Forecast.git
     source-tag: '0.1.0'
+    source-depth: 1
     meson-parameters:
       - --prefix=/snap/forecast/current/usr
     override-pull: |
