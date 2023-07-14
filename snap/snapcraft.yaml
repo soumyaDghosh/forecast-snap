@@ -15,7 +15,6 @@ parts:
     override-pull: |
       craftctl default
       patch -p1 < $CRAFT_PROJECT_DIR/forecast.patch
-      sed -i "s#icon_loc = 'data/status/'#icon_loc = '/snap/forecast/current/usr/share/icons/hicolor/scalable/status/'#" Forecast/WttrInfo.py
       pip install --prefix=$CRAFT_PART_INSTALL/usr requests==2.30.0
       pip install --prefix=$CRAFT_PART_INSTALL/usr pytz==2023.3
     override-build: |
@@ -26,7 +25,7 @@ parts:
       find $CRAFT_PART_INSTALL/meta/gui/icons -type f -not -name 'dev.salaniLeo.forecast*' -exec rm {} + -o -type d -empty -exec rmdir {} +
       for i in `find $CRAFT_PART_INSTALL/meta/gui/icons -name "*.svg" -o -name "*.png"`; do
         mv $i "`dirname $i`/snap.$CRAFT_PROJECT_NAME.`basename $i`"
-      done      
+      done
     parse-info: [usr/share/appdata/dev.salaniLeo.forecast.appdata.xml]
     organize:
       snap/forecast/current: .
@@ -34,12 +33,12 @@ parts:
       usr/lib/python3: usr/lib/python3.10
     prime:
       - -snap/forecast
-    
+
 slots:
   forecast:
     interface: dbus
     bus: session
-    name: dev.salaniLeo.forecast    
+    name: dev.salaniLeo.forecast
 apps:
   forecast:
     command: usr/bin/forecast
