@@ -13,9 +13,14 @@ parts:
   forecast:
     # See 'snapcraft plugins'
     plugin: meson
+<<<<<<< HEAD
     source: https://github.com/SalaniLeo/Forecast.git
     source-tag: '0.2.2'
     source-depth: 1
+=======
+    source: https://github.com/soumyaDghosh/Forecast.git
+    #source-tag: '0.1.0'
+>>>>>>> 34883e1 (use my changes once)
     meson-parameters:
       - --prefix=/snap/forecast/current/usr
     override-pull: |
