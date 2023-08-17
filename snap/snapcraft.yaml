@@ -1,8 +1,13 @@
-name: forecast # you probably want to 'snapcraft register <name>'
-base: core22 # the base snap is the execution environment for this snap
+name: forecast 
+base: core22 
 adopt-info: forecast
-grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slotssed -i "s#icon_loc = 'data/status/'#icon_loc = '/snap/forecast/current/usr/share/icons/hicolor/scalable/status/'#" Forecast/WttrInfo.py
+grade: stable 
+confinement: strict 
+source-code: https://github.com/SalaniLeo/Forecast
+issues: https://github.com/soumyaDghosh/forecast-snap/issues
+contact: soumyadeepghosh2004@zohomail.in
+website: https://github.com/soumyaDghosh/forecast-snap
+license: GPL-3.0
 
 architectures:
   - build-on: amd64
