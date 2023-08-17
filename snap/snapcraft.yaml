@@ -25,7 +25,6 @@ parts:
       - --prefix=/snap/forecast/current/usr
     override-pull: |
       craftctl default
-      patch -p1 < $CRAFT_PROJECT_DIR/forecast.patch
       pip install --prefix=$CRAFT_PART_INSTALL/usr requests==2.30.0
       pip install --prefix=$CRAFT_PART_INSTALL/usr pytz==2023.3
     override-build: |
