@@ -2,7 +2,7 @@ name: forecast # you probably want to 'snapcraft register <name>'
 base: core22 # the base snap is the execution environment for this snap
 adopt-info: forecast
 grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+confinement: strict # use 'strict' once you have the right plugs and slotssed -i "s#icon_loc = 'data/status/'#icon_loc = '/snap/forecast/current/usr/share/icons/hicolor/scalable/status/'#" Forecast/WttrInfo.py
 
 architectures:
   - build-on: amd64
@@ -13,14 +13,9 @@ parts:
   forecast:
     # See 'snapcraft plugins'
     plugin: meson
-<<<<<<< HEAD
-    source: https://github.com/SalaniLeo/Forecast.git
-    source-tag: '0.2.2'
-    source-depth: 1
-=======
     source: https://github.com/soumyaDghosh/Forecast.git
-    #source-tag: '0.1.0'
->>>>>>> 34883e1 (use my changes once)
+    #source-tag: '0.2.2'
+    source-depth: 1
     meson-parameters:
       - --prefix=/snap/forecast/current/usr
     override-pull: |
